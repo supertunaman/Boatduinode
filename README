@@ -1,0 +1,22 @@
+Boatduinode!
+
+I'm using this same repo for deployment, so excuse the mess. Let me show you 
+around.
+
+boatduinode.js - the node.js app, which handles connections and commands and such
+boatduinode.rb - the ruby script which acts as a client for the node.js app, and translates commands from there into serial commands
+BoatSerial.pde - receives serial commands and interfaces with the RC remote
+BoatTest.pde   - simple arduino sketch that pilots the boat in a most drunken manner
+web_socket.rb  - smallish websocket lib for boatduinode.rb
+
+Some notes:
+
+The app uses socket.io, which doesn't seem to be well-implemented in ruby 
+anywhere (certainly not client-side). As such, the script simply picks out 
+commands it's looking for and relays the rest. This suffices, as all I needed 
+was to receive five different commands and respond to the heartbeats. Node.js 
+doesn't seem to care beyond that in this case.
+
+The motors turn on when I pull the pins LOW, and off when they're pulled HIGH.
+Go figure.
+
