@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <title>You're on a boat!</title>
+</head>
+<body>
+<h3>Use arrow keys to control the boat!</h3>
+<object width="480" height="296" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+  <param name="flashvars" value="cid=348392&amp;autoplay=false"/>
+  <param name="allowfullscreen" value="true"/>
+  <param name="allowscriptaccess" value="always"/>
+  <param name="src" value="http://www.ustream.tv/flash/viewer.swf"/>
+  <embed flashvars="cid=348392&amp;autoplay=false" width="480" height="296" allowfullscreen="true" allowscriptaccess="always" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash"></embed>
+</object>
+
+<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+<!--<script src="http://boatduinode.nodester.com/socket.io/socket.io.js"></script>-->
+<script> 
+var socket = new io.Socket("localhost");
+//var socket = new io.Socket("http://boatduinode.nodester.com"); 
+socket.connect();
+socket.on('connect', function(){  }) 
+socket.on('message', function(){  }) 
+socket.on('disconnect', function(){  }) 
+
+function addEvent(obj, type, fn) {
+    if (obj.addEventListener)
+        obj.addEventListener(type, fn, false);
+    else if (obj.attachEvent) {
+        obj["e"+type+fn] = fn;
+        obj[type+fn] = function() { obj["e"+type+fn]( window.event ); }
+        obj.attachEvent( "on"+type, obj[type+fn] );
+    }
+}
+
+addEvent(document, 'keyup', stop);
+addEvent(document, 'keydown', function(event) {
+    event = event || window.event;
+    switch(event.keyCode) {
+        case 37:
+            left();
+            break;
+        case 38:
+            up();
+            break;
+        case 39:
+            right();
+            break;
+        case 40:
+            down();
+            break;
+    }
+});
+
+function up() {
+    socket.send("up");
+}
+
+function down() {
+    socket.send("down");
+}
+
+function left() {
+    socket.send("left");
+}
+
+function right() {
+    socket.send("right");
+}
+
+function stop() {
+    socket.send("stop");
+}
+</script> 
+</body>
+</html>
