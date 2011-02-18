@@ -13,11 +13,11 @@
   <embed flashvars="cid=348392&amp;autoplay=false" width="480" height="296" allowfullscreen="true" allowscriptaccess="always" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash"></embed>
 </object>
 
-<script src="http://localhost:8080/socket.io/socket.io.js"></script>
-<!--<script src="http://boatduinode.nodester.com/socket.io/socket.io.js"></script>-->
+<!--<script src="http://localhost:8080/socket.io/socket.io.js"></script>-->
+<script src="http://boatduinode.nodester.com/socket.io/socket.io.js"></script>
 <script> 
-var socket = new io.Socket("localhost");
-//var socket = new io.Socket("http://boatduinode.nodester.com"); 
+//var socket = new io.Socket("localhost");
+var socket = new io.Socket("http://boatduinode.nodester.com"); 
 socket.connect();
 socket.on('connect', function(){  }) 
 socket.on('message', function(){  }) 
