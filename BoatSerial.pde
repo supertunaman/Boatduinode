@@ -22,8 +22,8 @@
 
 int forward_left = 8;
 int forward_right = 9;
-int back_left = 10;
-int back_right = 11;
+int back_right = 10;
+int back_left = 11;
 int i;
 
 void setup() {
