@@ -11,7 +11,7 @@ app.configure(function(){
 app.get('/', function(req, res, next) {
     res.render('./public/index.html');
 });
-app.listen(80);
+app.listen(8167);
 
 var socket = io.listen(app, {
     flashPolicyServer: false,
