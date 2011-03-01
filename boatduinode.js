@@ -35,7 +35,8 @@ app.listen(8617);
 
 var socket = io.listen(app, {
     flashPolicyServer: false,
-    transports: ['websocket', 'htmlfile', 'xhr-multipart', 'xhr-polling', 'jsonp-polling']
+    //transports: ['websocket', 'htmlfile', 'xhr-multipart', 'xhr-polling', 'jsonp-polling']
+    transports: ['websocket']
 });
 
 socket.on('connection', function(client) {
