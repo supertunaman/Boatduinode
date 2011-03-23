@@ -24,7 +24,7 @@ require 'web_socket'
 
 @serial = SerialPort.new("/dev/ttyUSB0", 9600, 8, 1, SerialPort::NONE)
 #@ws = WebSocket.new "ws://localhost:8080/socket.io/websocket"
-@ws = WebSocket.new "ws://boatduinode.nodester.com/socket.io/websocket"
+@ws = WebSocket.new "ws://boatduinode.nodester.com:80/socket.io/websocket"
 puts "Connected"
 
 def up
