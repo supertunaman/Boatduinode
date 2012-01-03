@@ -18,8 +18,8 @@
 <script src="/socket.io/socket.io.js"></script>
 <script> 
 //var socket = new io.Socket("localhost");
-var socket = new io.Socket("http://boatduinode.nodester.com"); 
-socket.connect();
+var socket = new io.connect("http://boatduinode.nodester.com"); 
+//socket.connect();
 socket.on('connect', function(){  }) 
 socket.on('message', function(){  }) 
 socket.on('disconnect', function(){  }) 
